@@ -31,7 +31,7 @@ classifiers = [
         "Framework :: molfeat"
 ]
 
-keywords = ["molfeat", "plugin", "padel"]
+keywords = ["molfeat", "plugin", "PaDEL"]
 dependencies = [
     "molfeat",
     "padelpy"
@@ -42,8 +42,8 @@ dependencies = [
 
 [project.urls]
 Website = "https://molfeat.datamol.io"
-"Source Code" = "https://github.com/datamol-io/molfeat"
-"Bug Tracker" = "https://github.com/datamol-io/molfeat/issues"
+"Source Code" = "https://github.com/datamol-io/molfeat-padel"
+"Bug Tracker" = "https://github.com/datamol-io/molfeat-padel/issues"
 Documentation = "https://molfeat-docs.datamol.io"
 
 [tool.setuptools]
@@ -56,7 +56,7 @@ fallback_version = "dev"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["molfeat", "molfeat.*"]
+include = ["molfeat_padel", "molfeat_padel.*"]
 exclude = []
 namespaces = true
 
@@ -69,11 +69,6 @@ include = '\.pyi?$'
 minversion = "6.0"
 addopts = "--verbose --cov-report xml --cov-report term --color yes"
 testpaths = ["tests"]
-norecursedirs = "tests/helpers"
-filterwarnings = [
-    "ignore::DeprecationWarning:rdkit.*:",
-    "ignore::DeprecationWarning:mordred.*:",
-]
 
 [tool.coverage.run]
 omit = ["tests/*"]

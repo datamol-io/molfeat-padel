@@ -137,17 +137,17 @@ class PadelDescriptors(SerializableCalculator):
         mols: Union[List[dm.Mol], List[str]],
         disconnect_metals: bool = True,
         remove_salt: bool = True,
-        n_jobs: int = -1,
-        parallel_kwargs: Optional[Dict[str, Any]] = {},
+        **parallel_kwargs,
     ):
         """Batch compute the padel descriptors
         Args:
             mols: List of molecules
             disconnect_metals: Whether to disconnect metals
             remove_salt: Whether to remove salt
-            n_jobs: Number of jobs to use for parallelization
             parallel_kwargs: Additional arguments for parallelization
         """
+        if parallel_kwargs is None:
+            parallel_kwargs = {}
         with dm.without_rdkit_log():
             mols = dm.parallelized(
                 partial(
@@ -156,10 +156,9 @@ class PadelDescriptors(SerializableCalculator):
                     remove_salt=remove_salt,
                 ),
                 mols,
-                n_jobs=n_jobs,
                 **parallel_kwargs,
             )
-            smiles = dm.parallelized(dm.to_smiles, mols, n_jobs=n_jobs, **parallel_kwargs)
+            smiles = dm.parallelized(dm.to_smiles, mols, **parallel_kwargs)
         vals = padelpy.from_smiles(
             smiles,
             fingerprints=self.fingerprints,

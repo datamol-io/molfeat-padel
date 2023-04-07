@@ -40,9 +40,6 @@ dependencies = [
 [project.entry-points."molfeat.calc"]
 "padel" = "molfeat_padel.calc.padel:PadelDescriptors"
 
-[project.entry-points."molfeat.trans"]
-"padel" = "molfeat_padel.trans.padel:PadelTransformer"
-
 [project.urls]
 Website = "https://molfeat.datamol.io"
 "Source Code" = "https://github.com/datamol-io/molfeat-padel"

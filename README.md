@@ -54,33 +54,9 @@ pip install molfeat-padel
 
 The following example shows how to use the `molfeat-padel` plugin package automatically when installed. All scenarios highlighted in this example are valid:
 
-1. using the `PadelTransformer` directly from `molfeat-padel`
-
-If you intend to use PaDEL descriptors on a list of molecules, this is one of the recommended approach. This approach can significantly improve the efficiency of the process.
 
 
-```python
-from molfeat_padel.trans import PadelTransformer
-
-mol_transf = PadelTransformer()
-```
-
-2. interacting directly with `molfeat` by loading the plugins
-
-```python
-# put this somewhere in you code
-from molfeat.plugins import load_registered_plugins
-# in this example we only want to load the molfeat_padel plugin automatically
-load_registered_plugins(add_submodules=True, plugins=["molfeat_padel"])
-```
-
-```python
-# this is now possible
-from molfeat.trans import PadelTransformer
-mol_transf = PadelTransformer()
-```
-
-3. initializing the calculator from the plugin package
+1. initializing the calculator from the plugin package
 
 ```python
 
@@ -90,7 +66,17 @@ from molfeat_padel.calc import PadelDescriptors
 mol_transf = MoleculeTransformer(featurizer=PadelDescriptors())
 ```
 
-4. enable autodiscovery and addition of the `PadelDescriptors` as importable attribute to the entry point group `molfeat.calc`
+2. auto registration of PadelDescriptors to the list of calculators
+
+```python
+from molfeat.trans import MoleculeTransformer
+import molfeat_padel
+
+mol_transf = MoleculeTransformer(featurizer="PadelDescriptors")
+# works because PadelDescriptors is imported in the root init of molfeat_padel
+```
+
+3. enable autodiscovery and addition of the `PadelDescriptors` as importable attribute to the entry point group `molfeat.calc`
 
 ```python
 # put this somewhere in you code
@@ -110,15 +96,6 @@ mol_transf = MoleculeTransformer(featurizer=PadelDescriptors())
 mol_transf = MoleculeTransformer(featurizer="PadelDescriptors")
 ```
 
-5. auto discovery of PadelDescriptors 
-
-```python
-from molfeat.trans import MoleculeTransformer
-import molfeat_padel
-
-mol_transf = MoleculeTransformer(featurizer="PadelDescriptors")
-# works because PadelDescriptors is imported in the root init of molfeat_padel
-```
 ### Dependencies
 
 The only dependencies of `molfeat-padel` are `padelpy` and `molfeat`

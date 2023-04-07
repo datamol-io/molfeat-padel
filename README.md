@@ -1,8 +1,9 @@
 
 # `molfeat-padel`: A molfeat plugin that adds support for PaDEL-Descriptors
+---
 
 <div align="center">
-    <img src="docs/images/logo-title.svg" width="100%">
+    <img src="assets/logo-title.svg" width="100%">
 </div>
 
 <p align="center">
@@ -31,9 +32,11 @@
 
 `molfeat-padel` is an extension to `molfeat` that adds support for PaDEL descriptors. 
 
-To learn more about [molfeat](https://github.com/datamol-io/molfeat), please visit https://molfeat.datamol.io/. 
+- To learn more about PaDEL descriptors, please refer to the following paper: [Yap, 2010](https://doi.org/10.1002/jcc.21707)
 
-To learn more about the plugin system of molfeat, please see [extending molfeat](https://molfeat-docs.datamol.io/stable/developers/create-plugin.html)
+- To learn more about [`molfeat`](https://github.com/datamol-io/molfeat), please visit https://molfeat.datamol.io/. 
+
+- To learn more about the plugin system of molfeat, please see [extending molfeat](https://molfeat-docs.datamol.io/stable/developers/create-plugin.html)
 
 ## Installation
 
@@ -48,7 +51,7 @@ or
 pip install molfeat-padel
 ```
 
-`molfeat-padel` depends on `molfeat` and `padelpy`
+`molfeat-padel` depends on [molfeat](https://github.com/datamol-io/molfeat) and [padelpy](https://github.com/ecrl/padelpy)
 
 ## Usage
 

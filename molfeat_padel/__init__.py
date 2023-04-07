@@ -1,2 +1,2 @@
-from ._version import __version__
 from .calc.padel import PadelDescriptors
+from .trans.padel import PadelTransformer

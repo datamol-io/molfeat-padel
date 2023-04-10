@@ -30,7 +30,7 @@
 
 ## Overview
 
-`molfeat-padel` is an extension to `molfeat` that adds support for PaDEL descriptors. 
+`molfeat-padel` is an extension to `molfeat` that adds support for PaDEL descriptors. PaDEL-Descriptor is a software for calculating molecular descriptors and fingerprints based on CDK that currently calculates 797 descriptors (663 1D, 2D descriptors, and 134 3D descriptors) and 10 types of fingerprints. 
 
 - To learn more about PaDEL descriptors, please refer to the following paper: [Yap, 2010](https://doi.org/10.1002/jcc.21707)
 

@@ -1,7 +1,9 @@
 
-# 🧩 `molfeat-PaDEL`: A molfeat plugin that adds support for PaDEL-Descriptors
----
+# 🧩 `molfeat-PaDEL`
 
+A molfeat plugin that adds support for PaDEL-Descriptors
+
+---
 <div align="center">
     <img src="assets/molfeat-padel_cover.svg" width="100%">
 </div>

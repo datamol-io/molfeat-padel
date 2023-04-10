@@ -49,6 +49,3 @@ jobs:
 
       - name: Run pytest
         run: pytest
-
-      - name: Run doc building
-        run: mkdocs build

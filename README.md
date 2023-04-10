@@ -1,16 +1,16 @@
 
-# `molfeat-padel`: A molfeat plugin that adds support for PaDEL-Descriptors
+# `🧩 molfeat-PaDEL`: A molfeat plugin that adds support for PaDEL-Descriptors
 ---
 
 <div align="center">
-    <img src="assets/logo-title.svg" width="100%">
+    <img src="assets/molfeat-padel_cover.svg" width="100%">
 </div>
 
 <p align="center">
-    <b>molfeat - the hub for all your molecular featurizers </b> <br />
+    <b> 🧩 molfeat-PaDEL - A molfeat plugin that adds support for PaDEL-Descriptors </b> <br />
 </p>
 <p align="center">
-  <a href="https://molfeat-docs.datamol.io/" target="_blank">
+  <a href="https://molfeat-docs.datamol.io/stable/developers/create-plugin.html#2-explicitly-load-registered-plugins-to-automatically-discover-padeldescriptors" target="_blank">
       Docs
   </a> | 
   <a href="https://molfeat.datamol.io/" target="_blank">

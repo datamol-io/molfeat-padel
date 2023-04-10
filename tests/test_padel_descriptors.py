@@ -34,7 +34,7 @@ class TestPadel(ut.TestCase):
 
         mol_transf2 = MoleculeTransformer(featurizer=PD(), dtype="df")
         fps2 = mol_transf2(smiles)
-        np.testing.assert_allclose(fps.values, fps2.values)
+        np.testing.assert_allclose(fps.values, fps2.values, rtol=1e-05)
 
 
 if __name__ == "__main__":

@@ -26,14 +26,14 @@ class TestPadel(ut.TestCase):
     def test_padel_fp(self):
         smiles = dm.freesolv()["smiles"].values[:5]
         for feat in ["PadelDescriptors", PadelDescriptors()]:
-            trans = MoleculeTransformer(featurizer=feat, dtype="df")
-            fps = trans(smiles)
+            mol_transf = MoleculeTransformer(featurizer=feat, dtype="df")
+            fps = mol_transf(smiles)
             self.assertEqual(fps.shape, (5, 2756))
 
         from molfeat_padel.calc.padel import PadelDescriptors as PD
 
-        trans2 = MoleculeTransformer(featurizer=PD(), dtype="df")
-        fps2 = trans2(smiles)
+        mol_transf2 = MoleculeTransformer(featurizer=PD(), dtype="df")
+        fps2 = mol_transf2(smiles)
         np.testing.assert_allclose(fps.values, fps2.values)
 
 

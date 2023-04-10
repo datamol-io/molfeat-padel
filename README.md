@@ -1,10 +1,63 @@
-# `MolFeat-Padel`: An extension of Molfeat to support PaDEL-Descriptors
 
-`molfeat-padel` is a plugin to the `molfeat` library that add supports for PaDEL descriptors.
+# `molfeat-padel`: A molfeat plugin that adds support for PaDEL-Descriptors
+---
+
+<div align="center">
+    <img src="assets/logo-title.svg" width="100%">
+</div>
+
+<p align="center">
+    <b>molfeat - the hub for all your molecular featurizers </b> <br />
+</p>
+<p align="center">
+  <a href="https://molfeat-docs.datamol.io/" target="_blank">
+      Docs
+  </a> | 
+  <a href="https://molfeat.datamol.io/" target="_blank">
+      Homepage
+  </a>
+</p>
+
+---
+
+[![PyPI](https://img.shields.io/pypi/v/molfeat-padel)](https://pypi.org/project/molfeat-padel/)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/molfeat-padel)](https://pypi.org/project/molfeat-padel/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/molfeat-padel)](https://pypi.org/project/molfeat-padel/)
+[![license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/datamol-io/molfeat-padel/blob/main/LICENSE)
+[![test](https://github.com/datamol-io/molfeat-padel/actions/workflows/test.yml/badge.svg)](https://github.com/datamol-io/molfeat-padel/actions/workflows/test.yml)
+[![code-check](https://github.com/datamol-io/molfeat-padel/actions/workflows/code-check.yml/badge.svg)](https://github.com/datamol-io/molfeat-padel/actions/workflows/code-check.yml)
+[![release](https://github.com/datamol-io/molfeat-padel/actions/workflows/release.yml/badge.svg)](https://github.com/datamol-io/molfeat-padel/actions/workflows/release.yml)
+
+## Overview
+
+`molfeat-padel` is an extension to `molfeat` that adds support for PaDEL descriptors. PaDEL-Descriptor is a software for calculating molecular descriptors and fingerprints based on CDK that currently calculates 797 descriptors (663 1D, 2D descriptors, and 134 3D descriptors) and 10 types of fingerprints. 
+
+- To learn more about PaDEL descriptors, please refer to the following paper: [Yap, 2010](https://doi.org/10.1002/jcc.21707)
+
+- To learn more about [`molfeat`](https://github.com/datamol-io/molfeat), please visit https://molfeat.datamol.io/. 
+
+- To learn more about the plugin system of molfeat, please see [extending molfeat](https://molfeat-docs.datamol.io/stable/developers/create-plugin.html)
+
+## Installation
+
+You can install `molfeat-padel` with:
+
+```bash
+mamba install -c conda-forge molfeat
+```
+or 
+
+```bash
+pip install molfeat-padel
+```
+
+`molfeat-padel` depends on [molfeat](https://github.com/datamol-io/molfeat) and [padelpy](https://github.com/ecrl/padelpy)
 
 ## Usage
 
-The following example show how to use the `molfeat-padel` plugin package automatically when installed. In this example, all three scenarios are valid.
+The following example shows how to use the `molfeat-padel` plugin package automatically when installed. All scenarios highlighted in this example are valid:
+
+
 
 1. initializing the calculator from the plugin package
 
@@ -12,47 +65,38 @@ The following example show how to use the `molfeat-padel` plugin package automat
 
 from molfeat.trans import MoleculeTransformer
 
-from molfeat_padel.calc.padel import PadelDescriptors
-trans = MoleculeTransformer(featurizer=PadelDescriptors())
+from molfeat_padel.calc import PadelDescriptors
+mol_transf = MoleculeTransformer(featurizer=PadelDescriptors())
 ```
 
-2. enable autodiscovery and addition of the `PadelDescriptors` as importable attribute to the entry point group `molfeat.calc`
-
-```python
-from molfeat.trans import MoleculeTransformer
-from molfeat.plugins import load_registered_plugins
-load_registered_plugins(add_submodules=True)
-
-# this is now possible
-from molfeat.calc import PadelDescriptors
-trans = MoleculeTransformer(featurizer=PadelDescriptors())
-```
-
-3. auto discovery of PadelDescriptors 
+2. auto registration of PadelDescriptors to the list of calculators
 
 ```python
 from molfeat.trans import MoleculeTransformer
 import molfeat_padel
 
-trans = MoleculeTransformer(featurizer="PadelDescriptors")
+mol_transf = MoleculeTransformer(featurizer="PadelDescriptors")
 # works because PadelDescriptors is imported in the root init of molfeat_padel
 ```
 
+3. enable autodiscovery and addition of the `PadelDescriptors` as importable attribute to the entry point group `molfeat.calc`
+
 ```python
+# put this somewhere in you code
 from molfeat.trans import MoleculeTransformer
 from molfeat.plugins import load_registered_plugins
 load_registered_plugins(add_submodules=True)
-trans = MoleculeTransformer(featurizer="PadelDescriptors")
 ```
 
-## Installation
+```python
+# this is now possible
+from molfeat.calc import PadelDescriptors
+mol_transf = MoleculeTransformer(featurizer=PadelDescriptors())
+```
 
-### Conda
-
-Use conda:
-
-```bash
-mamba install conda-forge molfeat-padel
+```python
+# this is also possible
+mol_transf = MoleculeTransformer(featurizer="PadelDescriptors")
 ```
 
 ### Dependencies

@@ -30,7 +30,7 @@
 
 ## Overview
 
-`molfeat-padel` is an extension to `molfeat` that adds support for PaDEL descriptors. The PaDEL descriptors are a mix of  molecular descriptors (663 1D, 2D descriptors, and 134 3D descriptors) and fingerprints based on the Chemistry Development Kit (CDK). 
+`molfeat-padel` is an extension to `molfeat` that adds support for PaDEL descriptors. The PaDEL descriptors are a mix of  molecular descriptors (663 1D, 2D descriptors, 134 3D descriptors) and structural fingerprints based on the Chemistry Development Kit (CDK). 
 
 - To learn more about PaDEL descriptors, please refer to the following paper: [Yap, 2010](https://doi.org/10.1002/jcc.21707)
 
